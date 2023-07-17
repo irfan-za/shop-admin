@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.selected:not([disabled]) { 
+  background: rgba(254, 173, 173, 0.268);
+  border-radius: 0;
+}
+.selected:hover:not([disabled]) { 
+  background: rgba(254, 173, 173, 0.268) !important;
+  color: black;
+}
+.today { 
+  color: white;
+  background: red;
+}
+.range-start:not([disabled]) { 
+  color: white;
+  background: red;
+  border-radius: 25% 0 0 25%;
+}
+.range-end:not([disabled]) { 
+  color: white;
+  background: red;
+  border-radius: 0 25% 25% 0;
+}
+

@@ -1,11 +1,11 @@
 import UsersTableGroup from '@/components/UsersTableGroup';
 import ButtonAdd  from '@/components/ButtonAdd';
-import {getUsers} from "@/utils/getData";
+import {getData} from "@/utils/getData";
 
 
 
 export default async function Users() { 
-  const users= await getUsers(`${process.env.API_URL}/users`);
+  const users= await getData(`${process.env.API_URL}/users`);
 
    return (
     <section className='flex flex-col min-h-screen'>

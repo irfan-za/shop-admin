@@ -1,11 +1,11 @@
 import ButtonAdd  from '@/components/ButtonAdd';
 // import CategoriesTable from '@/components/CategoriesTableGroup';
-import {getUsers} from "@/utils/getData";
+import {getData} from "@/utils/getData";
 
 
 
 export default async function Categories() { 
-  const categories= await getUsers(`${process.env.API_URL}/products/categories`);
+  const categories= await getData(`${process.env.API_URL}/products/categories`);
 
    return (
     <section className='flex flex-col min-h-screen'>

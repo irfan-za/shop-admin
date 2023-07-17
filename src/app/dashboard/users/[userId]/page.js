@@ -1,45 +1,10 @@
 import MessageForm from "@/components/MessageForm";
 import ShowRecap from "@/components/ShowRecap";
-import { getAge } from "@/utils/getAge";
-import updateAccessToken from "@/utils/updateAccessToken";
 import {  UserIcon } from "@heroicons/react/24/outline"
 import { cookies } from "next/headers";
 import Link from "next/link";
 
 const getData=async(userId)=>{
-  const fetchData = await fetch(`${process.env.API_URL}/api/users/${userId}`,{
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*',
-      'X-ACCESS-TOKEN': `${cookies().get('X-ACCESS-TOKEN')}`,  
-    },
-  });
-  const result= await fetchData.json();
-  console.log('✅✅User detail [userid] :',result);
-  if(result.status === 200){
-    return result.data;
-  }
-  else if(result.status === 401){
-   const cookie= await updateAccessToken();
-   console.log('ACCESS TOKEN =>',cookie.access_token, userId);
-   const fetchData = await fetch(`${process.env.API_URL}/api/users/${userId}`,{
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*',
-      'X-ACCESS-TOKEN': `${cookie.access_token}`,  
-    },
-  });
-  const result= await fetchData.json();
-  console.log('✅User detail [userid] :',result);
-  if(result.status === 200){
-    return result.data;
-  }
-  }
-  else if(result.status === 404){
-    return console.log('404 not found');
-  }
 }
 
 

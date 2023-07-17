@@ -2,41 +2,9 @@
 import { EnvelopeIcon, UserIcon } from "@heroicons/react/24/outline"
 import Link from "next/link";
 import { cookies } from "next/headers";
-import updateAccessToken from "@/utils/updateAccessToken";
 
 
 const getData = async(userId)=>{
-  const fetchData= await fetch(`${process.env.API_URL}/api/users/${userId}`,{
-    method: 'GET',
-    headers: {
-      'Access-Control-Allow-Origin': '*',
-      'Content-Type': 'application/json',
-      'X-ACCESS-TOKEN': `${cookies().get('X-ACCESS-TOKEN')?.value}`,
-      'X-REFRESH-TOKEN': `${cookies().get('X-REFRESH-TOKEN')?.value}`,
-    }
-  });
-  const res= await fetchData.json();
-  if(res.status === 200){
-    return res.data;
-  }else if(res.status === 401){
-    const cookie=await updateAccessToken();
-    const fetchData= await fetch(`${process.env.API_URL}/api/users/${userId}`,{
-      method: 'GET',
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Content-Type': 'application/json',
-        'X-ACCESS-TOKEN': `${cookie.access_token}`,
-        'X-REFRESH-TOKEN': `${cookie.refresh_token}`,
-      }
-    });
-    const res= await fetchData.json();
-    if(res.status === 200){
-      return res.data;
-    }
-  }
-  else{
-    throw new Error(res.message);
-  }
 }
 
 export default async function AdminProfile({params}) {

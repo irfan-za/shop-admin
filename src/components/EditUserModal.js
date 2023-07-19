@@ -3,7 +3,6 @@ import { Fragment, useRef, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline'
 import clearForm from '../utils/clearForm'
-import Cookies from 'js-cookie'
 
 
 // function to join classname

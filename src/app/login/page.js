@@ -1,12 +1,10 @@
 'use client'
 import clearForm from "@/utils/clearForm";
-import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
   
 
 export default function Login(){
-  console.log('cookies==>',Cookies.get('token'))
   const router=useRouter();
 
   const login =async(e)=>{
@@ -23,14 +21,18 @@ export default function Login(){
         password: e.target.password.value
     })
     })
-    const result = await res.json();
-    if(result.token){
+    if(res.ok){
+      const result = await res.json();
       // set cookies
-      Cookies.set('token', result.token, { expires: 7 })
+      const d = new Date();
+      d.setTime(d.getTime() + (7 * 24 * 60 * 60 * 1000)); // Menambahkan 7 hari dalam milidetik
+      const expires = "expires=" + d.toUTCString();
+      document.cookie = "token=123; " + expires + ";";
       
       statusMessage.classList.remove('text-red-600');
       statusMessage.classList.add('text-green-600');
       statusMessage.innerHTML='successfully logged in!';
+      router.push('/dashboard')
     }else{
       statusMessage.classList.remove('text-green-600');
       statusMessage.classList.add('text-red-600');
@@ -38,7 +40,6 @@ export default function Login(){
     }
     
     clearForm(e);
-    router.push('/dashboard')
   }
   
   
@@ -99,7 +100,7 @@ export default function Login(){
                   name="password"
                   type="password"
                   autoComplete="current-password"
-                  placeholder="m38rmF$'"
+                  placeholder="m38rmF$"
                   requisky
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6"
                 />

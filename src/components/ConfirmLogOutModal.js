@@ -3,12 +3,11 @@ import { Fragment } from 'react'
 import { useRef } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { useRouter } from 'next/navigation'
-import Cookies from 'js-cookie'
 
 export default function ConfirmLogOutModal({open, setOpen}) {
   const router = useRouter()
   const logOut = async()=>{
-      Cookies.remove('token')
+    document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC;';
       router.push('/login');
   }
   const cancelButtonRef = useRef(null)

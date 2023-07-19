@@ -15,7 +15,8 @@ export default function UsersTableGroup({users}) {
   const findData=(e)=>{
     const inputSearch = e.target.value;
     const data = users?.filter((item)=>{
-      return item.name.toLowerCase().includes(inputSearch.toLowerCase());
+      const fullname=item.name.firstname.toLowerCase() + " " +item.name.lastname.toLowerCase()
+      return fullname.includes(inputSearch.toLowerCase());
     })
     setData(data);
   }
@@ -28,11 +29,11 @@ export default function UsersTableGroup({users}) {
         <div className="flex items-end">
           <button value={'table'} onClick={(e)=>setShowDataType(e.target.value)}
           className={`${showDataType=='table' ? 'border-green-500 bg-green-100 bg-opacity-30' :' border-gray-300'} border-b-2 px-3 py-0.5 mt-4 md:mt-0`}>
-            Tabel
+            Table
           </button>
           <button value={'chart'} onClick={(e)=>setShowDataType(e.target.value)}
           className={`${showDataType=='chart' ? 'border-green-500 bg-green-100 bg-opacity-30' :' border-gray-300'} border-b-2 px-3 py-0.5 mt-4 md:mt-0`}>
-            Grafik
+            Chart
           </button>
         </div>
         {
@@ -44,13 +45,13 @@ export default function UsersTableGroup({users}) {
                       <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
                   </svg>
               </span>
-                <input type="text" name="inputSearch" onChange={findData} placeholder="Cari data" className="block w-full py-1.5 pr-5 text-gray-700 bg-white border border-gray-200 rounded-lg md:w-80 placeholder-gray-400/70 pl-11 rtl:pr-11 rtl:pl-5  focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"/>
+                <input type="text" name="inputSearch" onChange={findData} placeholder="Find user" className="block w-full py-1.5 pr-5 text-gray-700 bg-white border border-gray-200 rounded-lg md:w-80 placeholder-gray-400/70 pl-11 rtl:pr-11 rtl:pl-5  focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"/>
           </div>
           )
           :
           (
             <div className=" flex items-center mt-4 md:mt-0 space-x-4 text-gray-700 ">
-              <label htmlFor="chartType">Tipe grafik : </label>
+              <label htmlFor="chartType">Chart Type : </label>
               <select 
               name="chartType" id="chartType" ref={chartTypeRef} 
               className="pr-8 py-0.5 border-b-2 border-green-500 bg-green-100 bg-opacity-25 rounded-md focus:outline-none focus:ring-0 focus:border-green-500 focus:border-b-2"

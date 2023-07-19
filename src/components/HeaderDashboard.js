@@ -7,55 +7,8 @@ import Image from 'next/image'
 import ConfirmLogOutModal from './ConfirmLogOutModal';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import Cookies from 'js-cookie';
 import { cn } from '@/utils/cn';
 
-
-
-async function updateAccessToken(){
-  const res= await fetch(`${process.env.API_URL}/api/auth/update-token`,{
-    method: 'POST',
-    headers: {
-      'Access-Control-Allow-Origin': '*',
-      'Content-Type': 'application/json',
-      'X-ACCESS-TOKEN': `${Cookies.get('X-ACCESS-TOKEN')}`,
-      'X-REFRESH-TOKEN': `${Cookies.get('X-REFRESH-TOKEN')}`,
-    }
-  })
-  const data=res.json();
-    if(data.status === 200){
-      // set cookies
-      console.log("update✅✅✅✅✅");
-      Cookies.set('X-ACCESS-TOKEN', data.data.access_token, { expires: 7 });
-      Cookies.set('X-REFRESH-TOKEN', data.data.refresh_token, { expires: 7 });
-    }
-    else{
-      console.log('❌', data.message);
-      return data
-    }
-  }
-  
-const getData = async(url)=>{
-  const fetchData= await fetch(url,{
-    method: 'GET',
-    headers: {
-      'Access-Control-Allow-Origin': '*',
-      'Content-Type': 'application/json',
-      'X-ACCESS-TOKEN': `${Cookies.get('X-ACCESS-TOKEN')}`,
-      'X-REFRESH-TOKEN': `${Cookies.get('X-REFRESH-TOKEN')}`,
-    }
-  });
-  const res= await fetchData.json();
-  if(res.status === 200){
-    return res.data;
-  }else if(res.status === 401){
-    updateAccessToken();
-    return res.data;
-  }
-  else{
-    throw new Error(res.message);
-  }
-}
 
 
 function HeaderDashboard() {

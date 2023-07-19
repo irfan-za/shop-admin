@@ -52,7 +52,7 @@ export default function ReactTableGroup({products}) {
             :
             (
               <div className=" flex items-center mt-4 md:mt-0 space-x-4 text-gray-700 ">
-                <label htmlFor="chartType">Tipe grafik : </label>
+                <label htmlFor="chartType">Chart Type : </label>
                 <select 
                 name="chartType" id="chartType" ref={chartTypeRef} 
                 className="pr-8 py-0.5 border-b-2 border-green-500 bg-green-100 bg-opacity-25 rounded-md focus:outline-none focus:ring-0 focus:border-green-500 focus:border-b-2"

@@ -2,7 +2,6 @@
 import { Fragment, useState } from 'react'
 import { useRef } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import Cookies from 'js-cookie'
 import { useRouter } from 'next/navigation'
 
 export default function ConfirmDeleteModal({open, setOpen, productId}) {

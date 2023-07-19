@@ -92,42 +92,51 @@ export default function EditUserModal({open, setOpen, id}) {
 
                     <div className="mt-3 sm:ml-4 sm:mt-0 sm:text-left">
                       <Dialog.Title as="h3" className="text-lg text-center font-semibold leading-6 text-gray-900">
-                        Edit User
+                        Edit Product
                       </Dialog.Title>
                       <div className="mt-10">
                         <form action="" method="post" onSubmit={(e)=>postData(e,id)}>
                           <div className='flex flex-col space-y-4'>
                             <div className='grid grid-cols-12'>
-                              <label htmlFor="first-name" className="col-auto col-start-2 flex items-center text-sm font-medium leading-6 text-gray-900">
-                                First name
-                              </label>
-                              <input
-                              className='col-span-8 col-start-4 col-end-12 border-x-0 border-t-0 border-b focus:border-b-2 border-slate-400 focus:border-green-400 focus:ring-0 transition-colors duration-300 ease-in'
-                              type="text" id='first-name' name='first-name' placeholder='first name' />
-                            </div>
-                            <div className='grid grid-cols-12'>
-                              <label htmlFor="last-name" className="col-auto col-start-2 flex items-center text-sm font-medium leading-6 text-gray-900">
-                                Last name
-                              </label>
-                              <input
-                              className='col-span-8 col-start-4 col-end-12 border-x-0 border-t-0 border-b focus:border-b-2 border-slate-400 focus:border-green-400 focus:ring-0 transition-colors duration-300 ease-in'
-                              type="text" id='last-name' name='last-name' placeholder='last name' />
-                            </div>
-                            <div className='grid grid-cols-12'>
-                              <label htmlFor="email" className="col-auto col-start-2 flex items-center text-sm font-medium leading-6 text-gray-900">
-                                Email
+                              <label htmlFor="title" className="col-auto col-start-2 flex items-center text-sm font-medium leading-6 text-gray-900">
+                                Title
                               </label>
                               <input
                               className='col-span-8 col-start-4 col-end-12 border-x-0 border-t-0 border-b focus:border-b-2 box-border border-slate-400 focus:border-green-400 focus:ring-0 transition-colors duration-300 ease-in '
-                              type="email" id='email' name='email' placeholder='insert email' />
+                              type="text" id='title' name='title' placeholder='insert product name' />
                             </div>
                             <div className='grid grid-cols-12'>
-                              <label htmlFor="phone" className="col-auto col-start-2 flex items-center text-sm font-medium leading-6 text-gray-900">
-                                Phone
+                              <label htmlFor="price" className="col-auto col-start-2 flex items-center text-sm font-medium leading-6 text-gray-900">
+                                Price
                               </label>
                               <input
                               className='col-span-8 col-start-4 col-end-12 border-x-0 border-t-0 border-b focus:border-b-2 border-slate-400 focus:border-green-400 focus:ring-0 transition-colors duration-300 ease-in'
-                              type="text" id='phone' name='phone' placeholder='insert new phone number' />
+                              type="text" id='price' name='price' placeholder='insert new price' />
+                            </div>
+                            <div className='grid grid-cols-12'>
+                              <label htmlFor="category" className="col-auto col-start-2 flex items-center text-sm font-medium leading-6 text-gray-900">
+                                Category
+                              </label>
+                              <input
+                              className='col-span-8 col-start-4 col-end-12 border-x-0 border-t-0 border-b focus:border-b-2 border-slate-400 focus:border-green-400 focus:ring-0 transition-colors duration-300 ease-in'
+                              type="text" id='category' name='category' placeholder='insert new category' />
+                            </div>
+                            <div className='grid grid-cols-12'>
+                              <label htmlFor="description" className="col-auto col-start-2 flex items-center text-sm font-medium leading-6 text-gray-900">
+                                Description
+                              </label>
+                              <input
+                              className='col-span-8 col-start-4 col-end-12 border-x-0 border-t-0 border-b focus:border-b-2 border-slate-400 focus:border-green-400 focus:ring-0 transition-colors duration-300 ease-in'
+                              type="text" id='description' name='description' placeholder='insert new description' />
+                            </div>
+                            <div className='grid grid-cols-12'>
+                              <label htmlFor="image" className="col-auto col-start-2 flex items-center text-sm font-medium leading-6 text-gray-900">
+                                Image
+                              </label>
+                              <input 
+                              type="file" accept="image/*" id='image' name='image' 
+                              className='col-span-8 col-start-4 col-end-12 border-x-0 border-t-0 border-b focus:border-b-2 border-slate-400 focus:border-green-400 focus:ring-0 transition-colors duration-300 ease-in'
+                               />
                             </div>
                           </div>
                           <div className='grid grid-cols-12 mt-6'>
@@ -140,7 +149,11 @@ export default function EditUserModal({open, setOpen, id}) {
                           <div className="mt-6 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
                             <button
                               type="submit"
-                              className="inline-flex w-full justify-center rounded-md bg-sky-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-sky-400 sm:ml-3 sm:w-auto">
+                              className=
+                              // {classNames( isLoading &&'bg-red-300 hover:bg-red-200 cursor-not-allowed',
+                                "inline-flex w-full justify-center rounded-md bg-sky-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-sky-400 sm:ml-3 sm:w-auto"
+                                // )}
+                                >
                               Save
                             </button>
                             <button

@@ -96,8 +96,7 @@ export default function ProductsTable({data}) {
                                   </td>
                                 ))}
                                   <td className="px-4 py-4 text-sm text-right whitespace-nowrap">
-                                      <PopoverMenu productId={parseInt(row.id)+1} />
-                                      
+                                      <PopoverMenu id={parseInt(row.id)+1} />
                                   </td>                                  
                               </tr>
                             ))} 

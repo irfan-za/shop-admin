@@ -9,7 +9,7 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        hostname: 'tailwindui.com'
+        hostname: 'images.pexels.com'
       },
       {
         hostname: 'fakestoreapi.com'

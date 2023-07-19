@@ -2,7 +2,7 @@ import { Popover, Transition } from "@headlessui/react";
 import Link from "next/link";
 import { Fragment, useState } from "react";
 import ConfirmDeleteModal from "../ConfirmDeleteModal";
-import EditProductModal from "../EditProductModal";
+import EditUserModal from "../EditUserModal";
 
 
 export default function PopoverMenu({id}) {
@@ -29,7 +29,7 @@ export default function PopoverMenu({id}) {
                 <Popover.Panel className="z-10 inline-block absolute -top-4 left-0 transform bg-white border border-gray-300 rounded-lg shadow-xl transition-all">
                   <div className="flex flex-col items-center justify-center text-sm text-gray-500">
                   <Link 
-                    href={`/dashboard/products/${id}`}
+                    href={`/dashboard/users/${id}`}
                     className="cursor-pointer text-center w-full py-2 px-4 hover:bg-sky-500 hover:text-white hover:font-normal hover:rounded-t-lg pt-2">
                       Detail
                     </Link>
@@ -47,7 +47,7 @@ export default function PopoverMenu({id}) {
           </>
 
 
-          <EditProductModal open={edit} setOpen={setEdit} id={id} />
+          <EditUserModal open={edit} setOpen={setEdit} id={id} />
           <ConfirmDeleteModal open={open} setOpen={setOpen} id={id} />
       </Popover>
   )

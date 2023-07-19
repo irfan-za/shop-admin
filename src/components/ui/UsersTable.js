@@ -5,7 +5,7 @@ import {
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import PopoverMenu from "./PopoverMenu";
+import PopoverMenuUser from "./PopoverMenuUser";
 import { useState } from "react";
 
 export default function UsersTable({data}) {
@@ -100,8 +100,8 @@ export default function UsersTable({data}) {
                                   </td>
                                 ))}
                                   <td className="px-4 py-4 text-sm text-right whitespace-nowrap">
-                                      <PopoverMenu userId={data[row.id].id} />
-                                  </td>                                  
+                                      <PopoverMenuUser id={data[row.id].id} />
+                                  </td>                                
                               </tr>
                             ))} 
                         </tbody>

@@ -1,6 +1,5 @@
 'use client'
 import { useRef, useState } from "react";
-import DatePicker from "@/components/ui/DatePicker";
 import UsersTable from "./ui/UsersTable";
 import UsersChart from "./ui/UsersChart";
 import Pagination from "./Pagination";
@@ -24,7 +23,6 @@ export default function UsersTableGroup({users}) {
     <section className="container mx-auto">
     <div className="mt-6 mb-8 md:flex md:items-center md:justify-between">
         <div className="inline-flex overflow-hidden bg-white border rounded-lg rtl:flex-row-reverse mt-4 md:mt-0">
-            <DatePicker/>
         </div>
         <div className="flex items-end">
           <button value={'table'} onClick={(e)=>setShowDataType(e.target.value)}
@@ -45,7 +43,7 @@ export default function UsersTableGroup({users}) {
                       <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
                   </svg>
               </span>
-                <input type="text" name="inputSearch" onChange={findData} placeholder="Find user" className="block w-full py-1.5 pr-5 text-gray-700 bg-white border border-gray-200 rounded-lg md:w-80 placeholder-gray-400/70 pl-11 rtl:pr-11 rtl:pl-5  focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"/>
+                <input type="text" name="inputSearch" onChange={findData} placeholder="Find user..." className="block w-full py-1.5 pr-5 text-gray-700 bg-white border border-gray-200 rounded-lg md:w-80 placeholder-gray-400/70 pl-11 rtl:pr-11 rtl:pl-5  focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"/>
           </div>
           )
           :

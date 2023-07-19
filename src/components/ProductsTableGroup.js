@@ -1,6 +1,5 @@
 'use client'
 import { useRef, useState } from "react";
-import DatePicker from "@/components/ui/DatePicker";
 import ProductsTable from "./ui/ProductsTable";
 import ProductsChart from "./ui/ProductsChart";
 import Pagination from "./Pagination";
@@ -25,7 +24,6 @@ export default function ReactTableGroup({products}) {
     <section className="container mx-auto">
       <div className="mt-6 mb-8 md:flex md:items-center md:justify-between">
           <div className="inline-flex overflow-hidden bg-white border rounded-lg rtl:flex-row-reverse mt-4 md:mt-0">
-              <DatePicker/>
           </div>
           <div className="flex items-end">
             <button value={'table'} onClick={(e)=>setShowDataType(e.target.value)}

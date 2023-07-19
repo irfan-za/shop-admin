@@ -4,11 +4,11 @@ import { useRef } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { useRouter } from 'next/navigation'
 
-export default function ConfirmDeleteModal({open, setOpen, productId}) {
+export default function ConfirmDeleteModal({open, setOpen, id}) {
   const router=useRouter()
   const [statusDelete, setStatusDelete] = useState(false)
   const deleteProduct = async()=>{
-    const fetchDelete= await fetch(`${process.env.API_URL}/products/${productId}`,{
+    const fetchDelete= await fetch(`${process.env.API_URL}/products/${id}`,{
       method: 'DELETE',
     });
     const res= await fetchDelete.json();

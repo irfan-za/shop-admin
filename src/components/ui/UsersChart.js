@@ -26,18 +26,18 @@ export default function UsersChart({currentChart, initialData}) {
     datasets: [],
   });
   const [data, setData] = useState({
-    labels: initialData.map((currentData)=>{return currentData.name}),
+    labels: initialData.map((currentData)=>{return currentData.id}),
       datasets: [
         {
-        label: 'Usia',
-        data: initialData.map((currentData)=>{return currentData.birth_date}),
+        label: 'user id',
+        data: initialData.map((currentData)=>{return currentData.id}),
         borderWidth: 2,
         borderColor: 'red',
         fill: true,
         cubicInterpolationMode: 'monotone',
       },
         {
-        label: 'jumlah uang',
+        label: 'transaction',
         data: [1, 4, 8, 6, 10, 11, 9, 10, 6, 7, 6, 4 ],
         borderWidth: 2,
         borderColor: 'blue',

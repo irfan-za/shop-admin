@@ -50,7 +50,7 @@ export default function Categories() {
           :
           <SkeletonTable/>
           }
-          <ButtonAdd/>
+          <ButtonAdd typeModal={'product'} />
         </div>
       </main>
     </section>

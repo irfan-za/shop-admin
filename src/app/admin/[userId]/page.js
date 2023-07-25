@@ -1,15 +1,11 @@
 
+import { getData } from "@/utils/getData";
 import { EnvelopeIcon, UserIcon } from "@heroicons/react/24/outline"
 import Link from "next/link";
-import { cookies } from "next/headers";
-
-
-const getData = async(userId)=>{
-}
 
 export default async function AdminProfile({params}) {
-  const data= await getData(params.userId)
-  console.log('✅',data); 
+  const data= await getData(`${process.env.API_URL}/users/${params.userId}`)
+  console.log('✅', data); 
 
   
   return data ?
@@ -17,8 +13,7 @@ export default async function AdminProfile({params}) {
     <>
       <main>
         <section className="relative block h-96">
-          <div className="absolute top-0 w-full h-full bg-center bg-cover bg-bg-admin" >
-            <span id="blackOverlay" className="w-full h-full absolute opacity-50 bg-black"></span>
+          <div className="absolute top-0 w-full h-full  bg-center bg-cover bg-sky-600" >
           </div>
           <div className="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden h-70-px" style={{transform: 'translateZ(0px)'}}>
             <svg className="absolute bottom-0 overflow-hidden" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" version="1.1" viewBox="0 0 2560 100" x="0" y="0">
@@ -38,17 +33,17 @@ export default async function AdminProfile({params}) {
                   </div>
                 </div>
                 <div className="text-center mt-12">
-                  <h3 className="text-xl sm:text-3xl font-semibold leading-normal text-slate-700 mb-2">
-                  {data && data.name}
+                  <h3 className="text-xl sm:text-3xl capitalize font-semibold leading-normal text-slate-700 mb-2">
+                  {data && data.name.firstname + " " + data.name.lastname}
                   </h3>
                   <div className="flex justify-center items-center text-sm leading-normal mt-0 mb-2 text-slate-400 font-bold">
-                    <UserIcon className="w-6 h-6 mr-2 text-lg text-slate-400"/>{data && data.role.name ? data.role.name : '-'}
+                    <UserIcon className="w-6 h-6 mr-2 text-lg text-slate-400"/>{data && data.username ? data.username : '-'}
                   </div>
                   <div className="flex justify-center items-center mb-2 text-slate-600 mt-10">
                     <EnvelopeIcon className="w-6 h-6 mr-2 text-lg text-slate-400"/>{data && data.email}
                   </div>
-                  <p className="text-slate-600 ">Telepon : {data && data.phone ? data.phone : "-"}</p>
-                  <p className="text-slate-600 ">Gender : {data && data.gender ? data.gender : '-'}</p>
+                  <p className="text-slate-600 ">Password : {data && data.password ? data.password : '-'}</p>
+                  <p className="text-slate-600 ">Phone : {data && data.phone ? data.phone : "-"}</p>
                 </div>
                 <div className="mt-10 py-10 border-t border-slate-200 text-center">
                   <div className="flex flex-wrap justify-center">
@@ -56,13 +51,13 @@ export default async function AdminProfile({params}) {
                       <Link
                       href={'/dashboard'}
                       className="font-normal hover:cursor-pointer text-slate-700 underline hover:no-underline basis-1/2 text-end">
-                        kembali ke dashboard
+                        back to dashboard
                       </Link>
                       <span>|</span>
                       <Link
                         href={'/logout'}
                         className="font-normal hover:cursor-pointer text-red-600 underline hover:no-underline basis-1/2 text-start">
-                          keluar
+                          logout
                       </Link>
                     </div>
                   </div>

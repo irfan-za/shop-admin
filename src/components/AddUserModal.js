@@ -58,7 +58,7 @@ const postData =async(e)=>{
 
 
 
-export default function AddUser({open, setOpen}) {
+export default function AddUserModal({showUserModal, setShowUserModal}) {
   const [passwordFocused, setPasswordFocused] = useState(false)
   const [passwordVisible, setPasswordVisible] = useState(false)
   const [confirmPasswordFocused, setConfirmPasswordFocused] = useState(false)
@@ -70,8 +70,8 @@ export default function AddUser({open, setOpen}) {
 
   
   return (
-    <Transition.Root show={open} as={Fragment}>
-      <Dialog as="div" className="relative z-10" initialFocus={cancelButtonRef} onClose={setOpen}>
+    <Transition.Root show={showUserModal} as={Fragment}>
+      <Dialog as="div" className="relative z-10" initialFocus={cancelButtonRef} onClose={()=>setShowUserModal(false)}>
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
@@ -101,7 +101,7 @@ export default function AddUser({open, setOpen}) {
 
                     <div className="mt-3 sm:ml-4 sm:mt-0 sm:text-left">
                       <Dialog.Title as="h3" className="text-lg text-center font-semibold leading-6 text-gray-900">
-                        Tambah data pengguna 
+                        Add new User 
                       </Dialog.Title>
                       <div className="mt-10">
                         <form action="" method="post" onSubmit={postData}>
@@ -116,7 +116,7 @@ export default function AddUser({open, setOpen}) {
                             </div>
                             <div className='grid grid-cols-12'>
                               <label htmlFor="nama" className="col-auto col-start-2 flex items-center text-sm font-medium leading-6 text-gray-900">
-                                Nama
+                                Name
                               </label>
                               <input
                               className='col-span-8 col-start-4 col-end-12 border-x-0 border-t-0 border-b focus:border-b-2 border-slate-400 focus:border-green-400 focus:ring-0 transition-colors duration-300 ease-in'
@@ -178,15 +178,15 @@ export default function AddUser({open, setOpen}) {
                                 "inline-flex w-full justify-center rounded-md bg-sky-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-sky-400 sm:ml-3 sm:w-auto"
                                 // )}
                                 >
-                              Tambah
+                              Add
                             </button>
                             <button
                               type="button"
                               className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
-                              onClick={() => setOpen(false)}
+                              onClick={() => setShowUserModal(false)}
                               ref={cancelButtonRef}
                             >
-                              Batal
+                              Cancel
                             </button>
                           </div>
                         </form>

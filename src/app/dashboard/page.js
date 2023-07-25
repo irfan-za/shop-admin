@@ -17,7 +17,7 @@ export default async function Products() {
       <main className="flex-1 inline-flex">
         <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8 flex-1">
           <ProductsTable products={products}/>
-          <ButtonAdd/>
+          <ButtonAdd typeModal={'product'} />
         </div>
       </main>
     </section>

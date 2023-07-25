@@ -120,13 +120,19 @@ function HeaderDashboard() {
                           as="a"
                           href={'/dashboard'}
                           className={cn('text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium')}>
-                          Rekap
+                          Products
+                        </Disclosure.Button>
+                        <Disclosure.Button
+                          as="a"
+                          href={'/dashboard/categories'}
+                          className={cn('text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium')}>
+                          Categories
                         </Disclosure.Button>
                         <Disclosure.Button
                           as="a"
                           href={'/dashboard/users'}
                           className={cn('text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium')}>
-                          Products
+                          Users
                         </Disclosure.Button>
                     </div>
                     <div className="border-t border-gray-700 pb-3 pt-4">

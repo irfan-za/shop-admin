@@ -1,7 +1,5 @@
 import { Fragment, useRef, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline'
-
 
 const postData =async(e)=>{
   e.preventDefault();
@@ -32,17 +30,14 @@ const postData =async(e)=>{
     body: JSON.stringify(formData)
   });
   const data = await res.json();
-  console.log(data);
 }
 
-export default function AddProductModal({open, setOpen}) {
-  const [passwordFocused, setPasswordFocused] = useState(false)
-  const [passwordVisible, setPasswordVisible] = useState(false)
+export default function AddProductModal({showProductModal, setShowProductModal}) {
   const cancelButtonRef = useRef(null)
 
   return (
-    <Transition.Root show={open} as={Fragment}>
-      <Dialog as="div" className="relative z-10" initialFocus={cancelButtonRef} onClose={setOpen}>
+    <Transition.Root show={showProductModal} as={Fragment}>
+      <Dialog as="div" className="relative z-10" initialFocus={cancelButtonRef} onClose={()=>setShowProductModal(false)}>
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
@@ -75,7 +70,7 @@ export default function AddProductModal({open, setOpen}) {
                         Add New Product 
                       </Dialog.Title>
                       <div className="mt-10">
-                        <form action="" method="post" onSubmit={(e) =>{e.preventDefault(); setOpen(false) }}>
+                        <form action="" method="post" onSubmit={(e) =>{e.preventDefault(); setShowProductModal(false) }}>
                           <div className='flex flex-col space-y-4'>
                           <div className='grid grid-cols-12'>
                               <label htmlFor="title" className="col-auto col-start-2 flex items-center text-sm font-medium leading-6 text-gray-900">
@@ -129,7 +124,7 @@ export default function AddProductModal({open, setOpen}) {
                             <button
                               type="button"
                               className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
-                              onClick={() => setOpen(false)}
+                              onClick={() => setShowProductModal(false)}
                               ref={cancelButtonRef}
                             >
                               Cancel

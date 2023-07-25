@@ -17,7 +17,7 @@ export default async function Users() {
       <main className="flex-1 inline-flex">
         <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8 flex-1 flex flex-col space-y-8 justify-between">
           <UsersTableGroup users={users}  />
-          <ButtonAdd/>
+          <ButtonAdd typeModal={'user'}/>
         </div>
       </main>
     </section>
